@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Taco Truck Finder</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYdrM8Jb0q36HFMBSDry2n6f-tuTTWTuo&libraries=places"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="title">Taco Tap!</h1>
+    <p class="subtitle">Find the tastiest taco trucks in town!</p>
+  </header>
+  <main>
+    <section class="search-section">
+      <label for="location">Enter Location:</label>
+      <input type="text" id="location" placeholder="Enter a city or address">
+      <button id="search-button">Search</button>
+    </section>
+    <section class="results-section">
+      <h2>Best Taco Trucks</h2>
+      <ul id="results-list"></ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
