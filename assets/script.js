@@ -1,10 +1,40 @@
+const openWeatherAPIKey = "c674ad2b8edde2ba9d195589ab42402d";
+const GeoURL = "https://api.openweathermap.org/geo/1.0/direct?q=";
+
+// Global variables
+var userInput = $("#location");
+let cityLat;
+let cityLon;
+
+async function GetCoordinates(city) {
+	const response = await fetch(GeoURL + userInput.val() + "&appid=" + openWeatherAPIKey);
+	if (response.ok) {
+		const coordinates = await response.json();
+		// console.log(coordinates);
+		return coordinates;
+	}
+}
+
+$("#search-button").click(async () => {
+	const coordinates = await GetCoordinates(userInput.val());
+	console.log(coordinates);
+	cityLat = coordinates[0].lat;
+	cityLon = coordinates[0].lon;
+	initMap(cityLat, cityLon);
+});
 
 // This function adds the map and the places found on page load
-function initMap() {
+function initMap(lat, lon) {
 	// Create the map.
-	const LA = new google.maps.LatLng(34.0522, -118.2437);
+	if (!lat && !lon) {
+		var city = new google.maps.LatLng(34.0522, -118.2437);
+	} else {
+		lat = cityLat;
+		lon = cityLon;
+		var city = new google.maps.LatLng(cityLat, cityLon);
+	}
 	const map = new google.maps.Map(document.getElementById("map"), {
-		center: LA,
+		center: city,
 		zoom: 15,
 		mapId: "8d193001f940fde3",
 	});
@@ -21,7 +51,7 @@ function initMap() {
 	};
 
 	// Perform a nearby search for taco trucks.
-	service.nearbySearch({ location: LA, radius: 2500, keyword: "taco trucks" }, (results, status, pagination) => {
+	service.nearbySearch({ location: city, radius: 2500, keyword: "taco trucks" }, (results, status, pagination) => {
 		if (status !== "OK" || !results) return;
 
 		addPlaces(results, map);
@@ -67,5 +97,14 @@ function addPlaces(places, map) {
 	}
 }
 
-window.initMap = initMap;
-google.maps.event.addDomListener(window, "load", initMap);
+// Call the initMap function when the Google Maps JavaScript API is loaded
+function loadMapScript() {
+	const script = document.createElement("script");
+	script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAYdrM8Jb0q36HFMBSDry2n6f-tuTTWTuo&callback=initMap&libraries=places`;
+	script.defer = true;
+	script.async = true;
+	document.head.appendChild(script);
+}
+
+// Call the loadMapScript function to load the API and define the initMap function
+loadMapScript();
