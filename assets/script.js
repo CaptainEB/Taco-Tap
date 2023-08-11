@@ -1,3 +1,5 @@
+
+// This function adds the map and the places found on page load
 function initMap() {
 	// Create the map.
 	const LA = new google.maps.LatLng(34.0522, -118.2437);
@@ -26,13 +28,14 @@ function initMap() {
 		moreButton.disabled = !pagination || !pagination.hasNextPage;
 		if (pagination && pagination.hasNextPage) {
 			getNextPage = () => {
-				// Note: nextPage will call the same handler function as the initial call
+				// NextPage will call the same handler function as the initial call
 				pagination.nextPage();
 			};
 		}
 	});
 }
 
+// This function adds the places to a list
 function addPlaces(places, map) {
 	const placesList = document.getElementById("places");
 
