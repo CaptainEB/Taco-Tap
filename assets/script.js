@@ -42,7 +42,6 @@ function initMap(lat, lon) {
 	const service = new google.maps.places.PlacesService(map);
 	let getNextPage;
 	const moreButton = document.getElementById("more");
-
 	moreButton.onclick = function () {
 		moreButton.disabled = true;
 		if (getNextPage) {
@@ -53,7 +52,6 @@ function initMap(lat, lon) {
 	// Perform a nearby search for taco trucks.
 	service.nearbySearch({ location: city, radius: 2500, keyword: "taco trucks" }, (results, status, pagination) => {
 		if (status !== "OK" || !results) return;
-
 		addPlaces(results, map);
 		moreButton.disabled = !pagination || !pagination.hasNextPage;
 		if (pagination && pagination.hasNextPage) {
@@ -68,6 +66,7 @@ function initMap(lat, lon) {
 // This function adds the places to a list
 function addPlaces(places, map) {
 	const placesList = document.getElementById("places");
+	$('#places').empty();
 
 	for (const place of places) {
 		if (place.geometry && place.geometry.location) {
@@ -87,7 +86,6 @@ function addPlaces(places, map) {
 			});
 
 			const li = document.createElement("li");
-
 			li.textContent = place.name;
 			placesList.appendChild(li);
 			li.addEventListener("click", () => {
