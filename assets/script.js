@@ -1,5 +1,6 @@
 const openWeatherAPIKey = "c674ad2b8edde2ba9d195589ab42402d";
 const GeoURL = "https://api.openweathermap.org/geo/1.0/direct?q=";
+const openWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=";
 
 // Global variables
 var userInput = $("#location");
@@ -17,7 +18,6 @@ async function GetCoordinates(city) {
 
 $("#search-button").click(async () => {
 	const coordinates = await GetCoordinates(userInput.val());
-	console.log(coordinates);
 	cityLat = coordinates[0].lat;
 	cityLon = coordinates[0].lon;
 	initMap(cityLat, cityLon);
@@ -27,7 +27,9 @@ $("#search-button").click(async () => {
 function initMap(lat, lon) {
 	// Create the map.
 	if (!lat && !lon) {
-		var city = new google.maps.LatLng(34.0522, -118.2437);
+		lat = 34.0522;
+		lon = -118.2437;
+		var city = new google.maps.LatLng(lat, lon);
 	} else {
 		lat = cityLat;
 		lon = cityLon;
@@ -61,12 +63,27 @@ function initMap(lat, lon) {
 			};
 		}
 	});
+
+	getWeather(lat, lon);
+}
+
+// This function will get the weather data
+async function getWeather(lat, lon) {
+	const response = await fetch(openWeatherURL + lat + "&lon=" + lon + "&appid=" + openWeatherAPIKey);
+	if (response.ok){ 
+		const weather = await response.json();
+		console.log(weather);
+		return weather;
+	}
+	else {
+		return 'ERROR: could not get weather data';
+	}
 }
 
 // This function adds the places to a list
 function addPlaces(places, map) {
 	const placesList = document.getElementById("places");
-	$('#places').empty();
+	$("#places").empty();
 
 	for (const place of places) {
 		if (place.geometry && place.geometry.location) {
