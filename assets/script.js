@@ -54,7 +54,9 @@ function initMap(lat, lon) {
 	// Perform a nearby search for taco trucks.
 	service.nearbySearch({ location: city, radius: 2500, keyword: "taco trucks" }, (results, status, pagination) => {
 		if (status !== "OK" || !results) return;
-		addPlaces(results, map);
+		console.log(results);
+		const filteredResults = results.filter((place) => place.rating >= 4);
+		addPlaces(filteredResults, map);
 		moreButton.disabled = !pagination || !pagination.hasNextPage;
 		if (pagination && pagination.hasNextPage) {
 			getNextPage = () => {
@@ -70,13 +72,12 @@ function initMap(lat, lon) {
 // This function will get the weather data
 async function getWeather(lat, lon) {
 	const response = await fetch(openWeatherURL + lat + "&lon=" + lon + "&appid=" + openWeatherAPIKey);
-	if (response.ok){ 
+	if (response.ok) {
 		const weather = await response.json();
 		console.log(weather);
 		return weather;
-	}
-	else {
-		return 'ERROR: could not get weather data';
+	} else {
+		return "ERROR: could not get weather data";
 	}
 }
 
