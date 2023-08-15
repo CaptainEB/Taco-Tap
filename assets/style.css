@@ -1,0 +1,70 @@
+:root {
+	--primary-color: #44b456;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-family: "Monoton", cursive;
+	font-weight: 400;
+	font-size: 4.5rem;
+}
+
+header {
+	background-color: var(--primary-color);
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 2rem;
+	padding: 0.75rem;
+}
+
+header > * {
+	margin: 0 2%;
+	color: white;
+}
+
+.search-section {
+	display: flex;
+	width: 30%;
+}
+
+.input {
+	font-size: 2rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem 0 0 0.5rem;
+	border: none;
+	outline: none;
+	width: 100%;
+}
+
+.input:hover,
+.input:focus {
+	border: 1px solid black;
+}
+
+.search-button {
+	font-size: 1em;
+	padding: 0.5rem;
+	border-radius: 0 0.5rem 0.5rem 0;
+	outline: none;
+	border: none;
+	border-left: 1px solid var(--primary-color);
+}
+
+.search-button:hover,
+.search-button:focus {
+	outline: 1px solid var(--primary-color);
+}
