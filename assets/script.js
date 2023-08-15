@@ -1,11 +1,18 @@
+// API links
 const openWeatherAPIKey = "c674ad2b8edde2ba9d195589ab42402d";
 const GeoURL = "https://api.openweathermap.org/geo/1.0/direct?q=";
 const openWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=";
 
 // Global variables
 var userInput = $("#location");
+let starSelector = $("*");
+let checkBox = $("#checkBox");
+let checkBoxStatus;
+let theme;
 let cityLat;
 let cityLon;
+
+themeSelector();
 
 async function GetCoordinates(city) {
 	const response = await fetch(GeoURL + userInput.val() + "&appid=" + openWeatherAPIKey);
@@ -120,6 +127,21 @@ function loadMapScript() {
 	script.defer = true;
 	script.async = true;
 	document.head.appendChild(script);
+}
+
+function themeSelector() {
+	theme = localStorage.getItem("theme") || "light";
+	starSelector.css("color-scheme", theme);
+
+	checkBox.on("change", () => {
+		if (checkBox.is(":checked")) {
+			localStorage.setItem("theme", "dark");
+			starSelector.css("color-scheme", "dark");
+		} else {
+			localStorage.setItem("theme", "light");
+			starSelector.css("color-scheme", "light");
+		}
+	});
 }
 
 // Call the loadMapScript function to load the API and define the initMap function

@@ -68,3 +68,32 @@ header > * {
 .search-button:focus {
 	outline: 1px solid var(--primary-color);
 }
+
+.toggle-button {
+	display: inline-block;
+	position: relative;
+	width: 60px;
+	height: 30px;
+	background-color: #ccc;
+	border-radius: 15px;
+	overflow: hidden;
+  }
+  
+  .toggle-button input {
+	display: none;
+  }
+  
+  .slider {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background-color: #2196F3;
+	border-radius: 15px;
+	transition: 0.4s;
+  }
+  
+  .toggle-button input:checked + .slider {
+	transform: translateX(100%);
+  }
