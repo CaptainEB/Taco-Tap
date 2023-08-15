@@ -130,15 +130,20 @@ function loadMapScript() {
 }
 
 function themeSelector() {
+	checkBoxStatus = localStorage.getItem("checkBoxStatus") || "notChecked";
 	theme = localStorage.getItem("theme") || "light";
+	if (theme == "dark") checkBox.prop("checked", true);
+	else checkBox.prop("checked", false);
 	starSelector.css("color-scheme", theme);
 
 	checkBox.on("change", () => {
 		if (checkBox.is(":checked")) {
 			localStorage.setItem("theme", "dark");
+			localStorage.setItem("checkBoxStatus", "checked");
 			starSelector.css("color-scheme", "dark");
 		} else {
 			localStorage.setItem("theme", "light");
+			localStorage.setItem("checkBoxStatus", "notChecked");
 			starSelector.css("color-scheme", "light");
 		}
 	});
