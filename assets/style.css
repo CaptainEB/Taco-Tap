@@ -126,6 +126,7 @@ header > * {
 
 .subtitle {
 	font-size: 1.2rem;
+	max-width: 16ch;
 }
 
 .toggle-button {
@@ -166,8 +167,14 @@ header > * {
 	margin-right: 5px;
 }
 
+.weather {
+	color: var(--primary-color);
+	font-weight: 700;
+	font-size: 2rem;
+}
+
 #map {
-	border: 5px solid rgb(65, 177, 65);
+	border: 3px solid rgb(65, 177, 65);
 	max-height: 65vh; /* Add a green border */
 }
 #results-list {

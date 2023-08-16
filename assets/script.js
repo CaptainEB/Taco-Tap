@@ -144,6 +144,7 @@ async function initMap(lat, lon) {
 	weatherEl.append(currentTemp + "°");
 
 	// Adds the city name above the list
+	citySpan.empty();
 	citySpan.append(cityName);
 }
 
