@@ -35,6 +35,43 @@ header > * {
     color: white;
 }
 
+.about-body {
+    background-color: var(--primary-color);
+}
+
+.about-header{
+    background-color: white;
+}
+
+.about-header>*{
+    color: var(--primary-color);
+}
+
+.about-main {
+    margin: 10%;
+    line-height: 4rem;
+    color: white;
+}
+
+.about-main p {
+    font-size: 3rem;
+    margin-bottom: 10%;
+}
+
+.about-main h2 {
+    font-size: 4rem;
+    margin-bottom: 6rem;
+}
+
+#lower-h2 {
+    font-size: 2.5rem;
+    color: white;
+    background-image: linear-gradient(to bottom left, #750404 0%, #02a3d4 100%);;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
 .search-section {
     display: flex;
     width: 30%;
