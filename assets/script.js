@@ -7,6 +7,7 @@ const openWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=";
 let userInput = $("#location");
 let checkBox = $("#checkBox");
 let weatherEl = $("#weather");
+let citySpan = $("#city");
 let theme;
 let cityLat;
 let cityLon;
@@ -137,9 +138,13 @@ async function initMap(lat, lon) {
 
 	// Showing the weather
 	let weather = await getWeather(lat, lon);
-	console.log(weather);
+	let currentTemp = Math.round(weather.list[0].main.temp);
+	let cityName = weather.city.name;
 	weatherEl.empty();
-	weatherEl.append(weather.list[0].main.temp + "°");
+	weatherEl.append(currentTemp + "°");
+
+	// Adds the city name above the list
+	citySpan.append(cityName);
 }
 
 // Fetch taco truck places with option to increase radius if needed

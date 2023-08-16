@@ -167,7 +167,8 @@ header > * {
 }
 
 #map {
-	border: 5px solid rgb(65, 177, 65); /* Add a green border */
+	border: 5px solid rgb(65, 177, 65);
+	max-height: 65vh; /* Add a green border */
 }
 #results-list {
 	margin-top: 20px;
