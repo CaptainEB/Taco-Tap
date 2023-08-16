@@ -1,160 +1,176 @@
 :root {
-    --primary-color: #44b456;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  h1 {
-    font-family: "Monoton", cursive;
-    font-weight: 400;
-    font-size: 2.0rem; /* Updated font size */
-  }
-  
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 1.5rem; /* Updated font size for smaller screens */
-    }
-  }
-  
-  header {
-    background-color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 2rem;
-    padding: 1.0rem;
-  }
-  
-  header > * {
-    margin: 0 2%;
-    color: white;
-  }
-  
-  .search-section {
-    display: flex;
-    width: 30%;
-  }
-  
-  .input {
-    font-size: 2rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem 0 0 0.5rem;
-    border: none;
-    outline: none;
-    width: 100%;
-  }
-  
-  .input:hover,
-  .input:focus {
-    border: 1px solid black;
-  }
-  
-  .search-button {
-    font-size: 1em;
-    padding: 0.5rem;
-    border-radius: 0 0.5rem 0.5rem 0;
-    outline: none;
-    border: none;
-    border-left: 1px solid var(--primary-color);
-  }
-  
-  .search-button:hover,
-  .search-button:focus {
-    outline: 1px solid var(--primary-color);
-  }
-  
-  #current-location-button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .toggle-button {
-    display: inline-block;
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background-color: #ccc;
-    border-radius: 15px;
-    overflow: hidden;
-  }
-  
-  .toggle-button input {
-    display: none;
-  }
-  
-  .slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background-color: #2196F3;
-    border-radius: 15px;
-    transition: 0.4s;
-  }
-  
-  .toggle-button input:checked + .slider {
-    transform: translateX(100%);
-  }
-  
-  .results-section {
-    margin-top: 20px;
-  }
-  
-  .place-number {
-    font-weight: bold;
-    margin-right: 5px;
-  }
-  
-  .container {
-    margin-top: 40px;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-  }
-  
-  .list-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .map-container {
-    display: flex;
-    align-items: flex-end;
-  }
-  
-  #map {
-    width: calc(100% - 20px); /* Reduce the width by 20px to create space on the right side */
-    height: 600px;
-    display: flex;
-    margin-bottom: 20px; /* Add bottom margin to create space at the bottom */
-    border: 5px solid rgb(65, 177, 65); /* Add a green border */
-  }
-  #results-list {
-    margin-top: 20px;
-    margin-left: 20px; /* Add left margin to create space on the left side */
-    margin-right: 20px; /* Add right margin to create space on the right side */
-  }
-  
-  .truck-header {
-    font-size: 2rem;
-  }
-  
+	--primary-color: #44b456;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+#title {
+	font-family: "Monoton", cursive;
+	font-weight: 400;
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 1.5rem; /* Updated font size for smaller screens */
+	}
+}
+
+header {
+	background-color: var(--primary-color);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 2rem;
+	padding: 1rem;
+}
+
+header > * {
+	margin: 0 2% !important;
+	color: white !important;
+}
+
+.about-body {
+	background-color: var(--primary-color);
+}
+
+.about-header {
+	background-color: white;
+}
+
+.about-header a {
+	color: var(--primary-color) !important;
+}
+
+.about-main {
+	margin: 10%;
+	line-height: 4rem;
+	color: white;
+}
+
+.about-main p {
+	font-size: 3rem;
+	margin-bottom: 10%;
+}
+
+.about-main h2 {
+	font-size: 4rem;
+	margin-bottom: 6rem;
+}
+
+#lower-h2 {
+	font-size: 2.5rem;
+	color: white;
+	background-image: linear-gradient(to bottom left, #750404 0%, #02a3d4 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#search-section {
+	display: flex;
+	width: 30%;
+}
+
+.input {
+	font-size: 2rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem 0 0 0.5rem;
+	border: none;
+	outline: none;
+	width: 100%;
+}
+
+.input:hover,
+.input:focus {
+	border: 1px solid black;
+}
+
+#search-button {
+	background-color: white;
+	color: var(--primary-color);
+	padding: 0.5rem;
+	border-radius: 0 0.5rem 0.5rem 0;
+	outline: none;
+	border: none;
+	border-left: 1px solid var(--primary-color);
+}
+
+#search-button:hover,
+#search-button:focus {
+	outline: 1px solid var(--primary-color);
+}
+x
+#current-location-button {
+	background-color: var(--primary-color);
+	font-size: 1rem;
+	color: white;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+}
+
+.toggle-button {
+	display: inline-block;
+	position: relative;
+	width: 60px;
+	height: 30px;
+	background-color: #ccc;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+.toggle-button input {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background-color: #2196f3;
+	border-radius: 15px;
+	transition: 0.4s;
+}
+
+.toggle-button input:checked + .slider {
+	transform: translateX(100%);
+}
+
+.place-number {
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+#map {
+	border: 5px solid rgb(65, 177, 65); /* Add a green border */
+}
+#results-list {
+	margin-top: 20px;
+	margin-left: 20px; /* Add left margin to create space on the left side */
+	margin-right: 20px; /* Add right margin to create space on the right side */
+}
+
+.truck-header {
+	font-size: 2rem;
+}
