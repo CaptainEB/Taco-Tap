@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taco Truck Finder</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/assets/style.css" />
-</head>
-<body>
-    <header>
-        <h1 class="title">Taco Tap</h1>
-        <section class="search-section">
-            <input class="input" type="text" id="location" placeholder="Enter a City Name" />
-            <button class="search-button" id="search-button">Search</button>
-            <button class="current-location-button" id="current-location-button">Current Location</button>
-        </section>
-        <p class="subtitle">Find the tastiest taco trucks in town!</p>
-        <label class="toggle-button">
-            <input type="checkbox" id="checkBox" />
-            <span class="slider"></span>
-        </label>
-        <a href="#" class="about">About</a>
-    </header>
-    <div class="container">
-        <h2 class="truck-header">Best Taco Trucks</h2>
-        <div class="grid-container">
-            <div class="list-container">
-                <section class="results-section">
-                    <ul id="results-list"></ul>
-                </section>
-            </div>
-            <div class="map-container">
-                <div id="map"></div>
-            </div>
-        </div>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Taco Truck Finder</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+	</head>
+	<body>
+		<header class="">
+			<a href="#"><h1 id="title" class="leading-[1] md:text-5xl lg:text-5xl">Taco Tap</h1></a>
+			<section id="search-section">
+				<input class="input text-xs md:text-lg lg:text-xl text-black" type="text" id="location" placeholder="Enter a City Name" />
+				<button id="search-button" class="text-xs">Search</button>
+				<button class="current-location-button" id="current-location-button">Current Location</button>
+			</section>
+			<p class="subtitle hidden lg:block">Find the tastiest taco trucks in town!</p>
+			<label class="toggle-button">
+				<input type="checkbox" id="checkBox" />
+				<span class="slider"></span>
+			</label>
+			<a href="about.html" class="about">About</a>
+		</header>
+		<main>
+			<h2 class="truck-header lg:mr-20 m-2">Best taco trucks in <span id="city"></span></h2>
+			<div class="mainContainer flex justify-between flex-wrap lg:mr-10 m-2">
+				<section class="results-section lg:w-1/3 sm:w-full">
+					<ul id="results-list" class="grid xl:grid-cols-1 lg:grid-cols-1 md:grid-cols-2 sm:grid-cols-2"></ul>
+				</section>
+				<div
+					class="w-full h-80 xl:w-1/2 lg:w-1/2 lg:h-auto md:h-80 md:w-full sm:h-80 sm:w-full sm:order-first md:order-first lg:order-last xl:order-last order-first"
+				>
+					<div id="weather" class="weather"></div>
+					<div id="map" class="w-full h-full"></div>
+				</div>
+			</div>
+		</main>
 
-    <script src="/assets/libraries/code.jquery.com_jquery-3.7.0.min.js"></script>
-    <script src="/assets/script.js"></script>
-</body>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="/assets/libraries/code.jquery.com_jquery-3.7.0.min.js"></script>
+		<script src="/assets/script.js"></script>
+	</body>
 </html>
