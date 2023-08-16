@@ -20,11 +20,17 @@ Step 4 - Visit the About page to learn more about the Taco Tap team and our inve
 
 Technologies Used:
 Figma - wireframing and designing the web application
+
 Trello - project management and KANBAN board tracking of issues for Scrum meetings
+
 HTML - Framework of application
+
 TailwindCSS - Styling of application
+
 Javascript - Logic of application
+
 Google Maps API - Location of the taco trucks
+
 OpenWeatherMap API - Geo services
 
 [[Insert deployed link]]
