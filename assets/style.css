@@ -185,6 +185,7 @@ header > * {
 
 #results-list li {
 	cursor: pointer;
+	margin-top: 2rem;
 	margin-bottom: 1rem;
 	line-height: 2rem;
 	padding: 1rem;
@@ -193,11 +194,11 @@ header > * {
 #results-list li:hover,
 #results-list li:focus {
 	background-color: rgb(238, 238, 238);
-	border-radius: .75rem;
+	border-radius: 0.75rem;
 }
 
 .place-number,
-.place-name{
+.place-name {
 	color: var(--primary-color);
 }
 
