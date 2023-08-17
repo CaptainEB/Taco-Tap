@@ -72,9 +72,9 @@ function addPlaces(places) {
 				const li = document.createElement("li");
 				li.innerHTML = `
                     <span class="place-number">${i + 1}.</span>
-                    <strong>${place.name}</strong><br>
-                    Rating: ${place.rating.toFixed(1)} (${place.user_ratings_total} reviews)<br>
-                    Address: ${place.vicinity}
+                    <strong  class="place-name">${place.name}</strong><br>
+                    Rating: <span class='place-rating'>${place.rating.toFixed(1)}</span>⭐ (${place.user_ratings_total} reviews)<br>
+                    Address:<span class="place-address"> ${place.vicinity}</span>
                 `;
 
 				placesList.appendChild(li);

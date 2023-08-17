@@ -183,6 +183,29 @@ header > * {
 	margin-right: 20px; /* Add right margin to create space on the right side */
 }
 
+#results-list li {
+	cursor: pointer;
+	margin-bottom: 1rem;
+	line-height: 2rem;
+	padding: 1rem;
+}
+
+#results-list li:hover,
+#results-list li:focus {
+	background-color: rgb(238, 238, 238);
+	border-radius: .75rem;
+}
+
+.place-number,
+.place-name{
+	color: var(--primary-color);
+}
+
+.place-rating {
+	color: rgb(214, 134, 7);
+}
+
 .truck-header {
 	font-size: 2rem;
+	margin: 1rem 1rem 1rem 2rem;
 }
