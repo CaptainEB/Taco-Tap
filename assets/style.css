@@ -195,6 +195,7 @@ header > * {
 #results-list li:focus {
 	background-color: rgb(238, 238, 238);
 	border-radius: 0.75rem;
+	color: black;
 }
 
 .place-number,
